@@ -1,0 +1,15 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Cypress artifacts
+cypress/videos/
+cypress/screenshots/
+
+# OS files
+.DS_Store
+
+# Environment variables
+.env
