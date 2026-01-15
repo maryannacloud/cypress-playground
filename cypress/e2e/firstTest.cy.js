@@ -71,7 +71,6 @@ it.only('Parent Elements', () => {
 // fluent design interface - infinite method chaining
 // catch: it is not recommended to continue the chain after the action command
 it.only('Cypress Chains', () => {
-
     cy.get('#inputEmail1')
         .parents('form')
         .find('button')
@@ -82,4 +81,37 @@ it.only('Cypress Chains', () => {
         .find('nb-radio')
         .first()
         .should('have.text', 'Option 1')
+})
+
+it.only('Reusing Locators', () => {
+
+    // traditional approach with saving the locators into vars
+    // THIS WILL NOT WORK
+    // const inputEmail = cy.get('#inputEmail1')
+    // inputEmail.parents('form').find('button')
+    // inputEmail.parents('form').find('nb-radio')
+
+    // 1. Cypress Alias - smart global variable
+    // cy.get('#inputEmail1').as('inputEmail1')
+    // cy.get('@inputEmial1').parents('form').find('button')
+    // cy.get('@inputEmail1').parents('form').find('nb-radio')
+
+    // 2. Cypress .then() method
+    // below syntax will not work:
+    // cy.get('#inputEmail1').then(inputEmail => {
+    //     inputEmail.parents('form').find('button')
+    // })
+
+    // .then() retruns JQuery Object
+    // using cy.wrap to convert from JQuery into the Cypress context
+    // we cannot use return statement within .then() method
+    cy.get('#inputEmail1').then(inputEmail => {
+        cy.wrap(inputEmail).parents('form').find('button')
+        cy.wrap(inputEmail).parents('form').find('nb-radio')
+        cy.wrap('Hello').should('equal', 'Hello')
+        cy.wrap(inputEmail).as('inputEmail2')
+    })
+
+    cy.get('@inputEmail2').click()
+
 })
