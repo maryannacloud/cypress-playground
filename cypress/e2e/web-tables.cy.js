@@ -43,5 +43,4 @@ it.only('web tables', () => {
             }
         })
     })
-
 })
