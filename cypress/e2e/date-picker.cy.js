@@ -4,7 +4,7 @@ beforeEach('Open.application', () => {
     cy.visit('/')
 })
 
-it.only('date-pickers', () => {
+it('date-pickers', () => {
     cy.contains('Forms').click()
     cy.contains('Datepicker').click()
 

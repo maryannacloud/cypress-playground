@@ -6,7 +6,7 @@ beforeEach('Open test application', () => {
     cy.contains('Form Layouts').click()
 })
 
-it.only('Extract Values', () => {
+it('Extract Values', () => {
 
     // 1. Using a JQuery value
     cy.get('[for="exampleInputEmail1"]').then(label => {

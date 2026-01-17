@@ -5,7 +5,7 @@ beforeEach('Open.application', () => {
 })
 
 // By default, Cypress is configured to accept the browser-native alerts
-it.only('dialog boxes', () => {
+it('dialog boxes', () => {
     cy.contains('Tables & Data').click()
     cy.contains('Smart Table').click()
 

@@ -6,7 +6,7 @@ beforeEach('Open test application', () => {
     cy.contains('Form Layouts').click()
 })
 
-it.only('Assertions', () => {
+it('Assertions', () => {
 
     // The below two methods do the same thing - just different syntax
     // Keywork 'contain' is a partial assertion, if we want to assert an exact match we would have to use the 'have.text'

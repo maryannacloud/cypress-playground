@@ -6,7 +6,7 @@ beforeEach('Open test application', () => {
     cy.contains('Form Layouts').click()
 })
 
-it.only('Timeouts', () => {
+it('Timeouts', () => {
     cy.contains('Modal & Overlays').click()
     cy.contains('Dialog').click()
 
