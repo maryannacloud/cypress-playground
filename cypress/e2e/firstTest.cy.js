@@ -41,7 +41,7 @@ it.only('Cypress locator methods', () => {
     // find() - to find elements only child elements
     // contains() - to find elements by text, finds the first match on the page
 
-    cy.contains('Sign In', {matchCase: false})
+    cy.contains('Sign In', { matchCase: false })
     cy.contains('[status="warning"]', 'Sign in')
     cy.contains('nb-card', 'Horizontal form').find('button')
     cy.contains('nb-card', 'Horizontal form').contains('Sign in')
@@ -118,7 +118,7 @@ it.only('Reusing Locators', () => {
 it.only('Extract Values', () => {
 
     // 1. Using a JQuery value
-    cy.get('[for="exampleInputEmail1"]').then(label =>{
+    cy.get('[for="exampleInputEmail1"]').then(label => {
         const emailLabel = label.text()
         console.log(emailLabel)
     })
@@ -142,4 +142,37 @@ it.only('Extract Values', () => {
     cy.get('#exampleInputEmail1').invoke('prop', 'value').then(value => {
         console.log(value)
     })
+})
+
+it.only('Assertions', () => {
+
+    // The below two methods do the same thing - just different syntax
+    // Keywork 'contain' is a partial assertion, if we want to assert an exact match we would have to use the 'have.text'
+    // better not to use contains for the assertions, since it's primary role to aid in finding the web element by the text 
+    cy.get('[for="exampleInputEmail1"]').should('have.text', 'Email address')
+
+    cy.get('[for="exampleInputEmail1"]').then(label => {
+        expect(label).to.have.text('Email address')
+    })
+
+    cy.get('[for="exampleInputEmail1"]').invoke('text').then(emailLabel => {
+        expect(emailLabel).to.equal('Email address')
+        cy.wrap(emailLabel).should('equal', 'Email address')
+    })
+})
+
+it.only('Timeouts', () => {
+    cy.contains('Modal & Overlays').click()
+    cy.contains('Dialog').click()
+
+    cy.contains('Open with delay 3 seconds').click()
+    cy.get('nb-dialog-container nb-card-header').should('have.text', 'Friendly reminder')
+    cy.contains('OK').click()
+
+    cy.contains('Open with delay 10 seconds').click()
+    cy.get('nb-dialog-container nb-card-header', {timeout: 11000}).should('have.text', 'Friendly reminder')
+    cy.contains('OK').click()
+
+    // Cypress has actionability check, when related to action commands
+    // Cypress has a dafault timeout of 4 seconds and it can be configured on the Framework level or on the Command level
 })
