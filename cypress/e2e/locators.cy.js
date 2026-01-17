@@ -36,7 +36,7 @@ it('Hello world 1', () => {
     cy.get('[data-cy="inputEmail1"]')
 })
 
-it.only('Cypress locator methods', () => {
+it('Cypress locator methods', () => {
     // get() - to find elements on the page globally
     // find() - to find elements only child elements
     // contains() - to find elements by text, finds the first match on the page
@@ -49,7 +49,7 @@ it.only('Cypress locator methods', () => {
 
 })
 
-it.only('Child Elements', () => {
+it('Child Elements', () => {
     cy.contains('nb-card', 'Using the Grid').find('.row').find('button')
     cy.get('nb-card').find('nb-radio-group').contains('Option 1')
 
@@ -62,7 +62,7 @@ it.only('Child Elements', () => {
     cy.get('nb-card > nb-card-body [placeholder="Jane Doe"]')
 })
 
-it.only('Parent Elements', () => {
+it('Parent Elements', () => {
     cy.get('#inputEmail1').parents('form').find('button')
     cy.contains('Using the Grid').parent().find('button')
     cy.get('#inputEmail1').parentsUntil('nb-card-body').find('button')

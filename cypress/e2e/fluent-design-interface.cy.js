@@ -8,7 +8,7 @@ beforeEach('Open test application', () => {
 
 // fluent design interface - infinite method chaining
 // catch: it is not recommended to continue the chain after the action command
-it.only('Cypress Chains', () => {
+it('Cypress Chains', () => {
     cy.get('#inputEmail1')
         .parents('form')
         .find('button')

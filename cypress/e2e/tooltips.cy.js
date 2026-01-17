@@ -4,7 +4,7 @@ beforeEach('Open.application', () => {
     cy.visit('/')
 })
 
-it.only('tooltips', () => {
+it('tooltips', () => {
     cy.contains('Modal & Overlays').click()
     cy.contains('Tooltip').click()
 

@@ -4,7 +4,7 @@ beforeEach('Open.application', () => {
     cy.visit('/')
 })
 
-it.only('radio buttons', () => {
+it('radio buttons', () => {
     cy.contains('Forms').click()
     cy.contains('Form Layouts').click()
 

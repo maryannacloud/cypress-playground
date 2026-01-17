@@ -6,7 +6,7 @@ beforeEach('Open test application', () => {
     cy.contains('Form Layouts').click()
 })
 
-it.only('Reusing Locators', () => {
+it('Reusing Locators', () => {
 
     // traditional approach with saving the locators into vars
     // THIS BELOW WILL NOT WORK

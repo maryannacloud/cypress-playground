@@ -4,7 +4,7 @@ beforeEach('Open.application', () => {
     cy.visit('/')
 })
 
-it.only('checkboxes', () => {
+it('checkboxes', () => {
     cy.contains('Modal & Overlays').click()
     cy.contains('Toastr').click()
 
