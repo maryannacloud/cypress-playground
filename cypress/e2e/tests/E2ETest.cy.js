@@ -4,7 +4,7 @@ import { onDatePickerPage } from "../../page-objects/DatePickerPage"
 import { onFormLayotsPage } from "../../page-objects/FormLayoutPage"
 
 beforeEach('Open application', () => {
-    cy.visit('/')
+    cy.openHomePage()
 })
 
 it('navigation test', () => {
@@ -22,4 +22,3 @@ it('submit form test', () => {
     onDatePickerPage.selectCommonDatepickerDateFromToday(5)
     onDatePickerPage.selectRangePickerDateFromToday(10, 50)
 })
-

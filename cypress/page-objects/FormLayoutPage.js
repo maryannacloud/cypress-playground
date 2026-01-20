@@ -1,4 +1,11 @@
 class FormLayoutsPage{
+
+    /**
+     * Method to submit Using the Grid form with user credts
+     * @param {string} email - valid user email
+     * @param {string} password - valied user password
+     * @param {string} optionIndex - provide index of the Option radio button, starts with 0
+     */
     submitUsingTheGridForm(email, password, optionIndex){
         cy.contains('nb-card', 'Using the Grid').then(form => {
             cy.wrap(form).find('[placeholder="Email"]').type(email)
