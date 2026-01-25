@@ -1,7 +1,11 @@
 {
   "name": "cypress-playground",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:smoke-chrome": "npx cypress run --spec 'cypress/e2e/tests/E2ETest.cy.js'",
+    "cypress:smoke-firefox": "npx cypress run --spec 'cypress/e2e/tests/E2ETest.cy.js'",
+    "cypress:smoke-all-seq": "npm run cypress:smoke-chrome && npm run ypress:smoke-firefox",
+    "cypress:smoke-all-parallel": "npm run cypress:smoke-chrome & npm run ypress:smoke-firefox"
   },
   "devDependencies": {
     "cypress": "^15.8.2",
